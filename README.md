@@ -5,26 +5,12 @@ StarWarsAPI is the backend for the StarWarsExplorer application. It provides a R
 ## Table of Contents
 
 - [Description](#description)
-- [Features](#features)
 - [Technologies](#technologies)
 - [Installation and Running](#installation-and-running)
-- [API Usage](#api-usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 
 StarWarsAPI provides information about characters, planets, starships, and other aspects of the Star Wars universe. This backend is intended for use with the StarWarsExplorer frontend application.
-
-## Features
-
-- Retrieve a list of characters
-- Retrieve information about a specific character
-- Retrieve a list of planets
-- Retrieve information about a specific planet
-- Retrieve a list of starships
-- Retrieve information about a specific starship
 
 ## Technologies
 
@@ -44,6 +30,16 @@ This project is built using the following technologies:
 ### Local Installation
 
 1. Clone the repository:
-   ```sh
+ 
    git clone https://github.com/fahrenheit911/StarWarsAPI.git
    cd StarWarsAPI
+
+2. Installing dependencies
+
+   npm install
+
+3. Build and run the Docker containers:
+
+   docker-compose up -d
+
+
