@@ -1,6 +1,7 @@
 # StarWarsAPI
 
-StarWarsAPI is the backend for the StarWarsExplorer application. It provides a REST API to access data about the Star Wars universe.
+StarWarsAPI is the backend for the StarWarsExplorer application. It provides a REST API to access
+data about the Star Wars universe.
 
 ## Table of Contents
 
@@ -10,7 +11,8 @@ StarWarsAPI is the backend for the StarWarsExplorer application. It provides a R
 
 ## Description
 
-StarWarsAPI provides information about characters, planets, starships, and other aspects of the Star Wars universe. This backend is intended for use with the StarWarsExplorer frontend application.
+StarWarsAPI provides information about characters, planets, starships, and other aspects of the Star
+Wars universe. This backend is intended for use with the StarWarsExplorer frontend application.
 
 ## Technologies
 
