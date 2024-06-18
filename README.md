@@ -72,6 +72,12 @@ Getting a people-list
 curl -X GET http://localhost:3000/api/people
 ```
 
+Getting a person by id
+
+```bash
+curl -X GET http://localhost:3000/api/people/1
+```
+
 Creating a new person
 
 ```bash
@@ -81,8 +87,6 @@ curl -X POST http://localhost:3000/api/people \
 ```
 
 ### Stopping the containers
-
-Чтобы остановить контейнеры, выполните:
 
 ```bash
 docker-compose down
