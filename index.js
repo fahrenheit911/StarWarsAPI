@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import {connectDatabase} from './data-source.js';
-import peopleRoutes from './src/routes/peopleRoutes.js';
+import peopleRoutes from './src/routes/people.js';
 
 dotenv.config();
 

@@ -1,4 +1,4 @@
-import peopleService from '../services/peopleService.js';
+import peopleService from '../services/people.js';
 
 const getPeople = async (req, res) => {
   try {
@@ -13,7 +13,6 @@ const getPeople = async (req, res) => {
 const getPersonById = async (req, res) => {
   try {
     const {id} = req.params;
-    console.log(id);
     const person = await peopleService.getPersonById(id);
     if (person) {
       res.json(person);

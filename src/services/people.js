@@ -1,4 +1,4 @@
-import peopleDAO from '../DAO/peopleDAO.js';
+import peopleDAO from '../DAO/people.js';
 
 const getPeople = async () => {
   return await peopleDAO.getPeople();

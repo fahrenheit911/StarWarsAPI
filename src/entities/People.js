@@ -5,7 +5,7 @@ const People = new EntitySchema({
   columns: {
     id: {
       primary: true,
-      type: 'varchar',
+      type: 'int',
       generated: true,
     },
     name: {type: 'varchar'},
