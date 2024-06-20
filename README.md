@@ -1,6 +1,7 @@
 # StarWarsAPI
 
-StarWarsAPI is the backend for the StarWarsExplorer application. It provides a REST API to access data about the Star Wars universe.
+StarWarsAPI is the backend for the StarWarsExplorer application. It provides a REST API to access
+data about the Star Wars universe.
 
 ## Table of Contents
 
@@ -10,7 +11,8 @@ StarWarsAPI is the backend for the StarWarsExplorer application. It provides a R
 
 ## Description
 
-StarWarsAPI provides information about characters, planets, starships, and other aspects of the Star Wars universe. This backend is intended for use with the StarWarsExplorer frontend application.
+StarWarsAPI provides information about characters, planets, starships, and other aspects of the Star
+Wars universe. This backend is intended for use with the StarWarsExplorer frontend application.
 
 ## Technologies
 
@@ -70,6 +72,12 @@ Getting a people-list
 curl -X GET http://localhost:3000/api/people
 ```
 
+Getting a person by id
+
+```bash
+curl -X GET http://localhost:3000/api/people/1
+```
+
 Creating a new person
 
 ```bash
@@ -79,8 +87,6 @@ curl -X POST http://localhost:3000/api/people \
 ```
 
 ### Stopping the containers
-
-Чтобы остановить контейнеры, выполните:
 
 ```bash
 docker-compose down

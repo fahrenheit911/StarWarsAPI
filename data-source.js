@@ -1,10 +1,10 @@
-import { DataSource } from 'typeorm';
+import {DataSource} from 'typeorm';
 import dotenv from 'dotenv';
 import People from './src/entities/People.js';
 
 dotenv.config();
 
-const AppDataSource  = new DataSource({
+const AppDataSource = new DataSource({
   type: 'postgres',
   url: process.env.DATABASE_URL,
   entities: [People],
@@ -22,4 +22,3 @@ export const connectDatabase = async () => {
 };
 
 export default AppDataSource;
-
