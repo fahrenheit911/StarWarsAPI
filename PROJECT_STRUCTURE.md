@@ -1,73 +1,87 @@
-# Структура работы StarWarsAPI
+# StarWarsAPI Project Structure
 
-## Архитектура
+## Architecture
 
-StarWarsAPI основан на архитектуре клиент-сервер, где фронтенд (StarWarsExplorer) взаимодействует с
-бэкендом (StarWarsAPI) через REST API. Бэкенд использует Node.js и Express.js для обработки
-HTTP-запросов, PostgreSQL для хранения данных и TypeORM для работы с базой данных.
+StarWarsAPI is based on a client-server architecture, where the frontend (StarWarsExplorer) interacts with the backend (StarWarsAPI) via a REST API. The backend uses Node.js and Express.js to handle HTTP requests, PostgreSQL for data storage, and TypeORM for database operations.
 
-## Компоненты
+## Components
 
 ### Frontend (StarWarsExplorer)
 
-Фронтенд-приложение, которое делает HTTP-запросы к StarWarsAPI для получения данных о персонажах,
-планетах и звездных кораблях.
+A frontend application that makes HTTP requests to StarWarsAPI to retrieve data about people, planets, and starships.
 
 ### Backend (StarWarsAPI)
 
-- **Express.js server**: Обрабатывает входящие HTTP-запросы от клиента и направляет их к
-  соответствующим обработчикам.
-- **Controllers**: Обрабатывают логику запросов, взаимодействуют с сервисами и возвращают ответы
-  клиенту.
-- **Services**: Содержат бизнес-логику и взаимодействуют с базой данных.
-- **DAO (Data Access Object)**: Отвечают за доступ к данным и взаимодействие с базой данных через
-  TypeORM.
-- **Entities**: Определяют структуру данных и методы взаимодействия с PostgreSQL через TypeORM.
-- **Routs**: Определяют конечные точки API и связывают их с соответствующими контроллерами.
+- **Express.js server**: Handles incoming HTTP requests from the client and routes them to the appropriate handlers.
+- **Controllers**: Process request logic, interact with services, and return responses to the client.
+- **Services**: Contain business logic and interact with the database.
+- **DAO (Data Access Object)**: Responsible for data access and interaction with the database via TypeORM.
+- **Entities**: Define the data structure and methods for interacting with PostgreSQL through TypeORM.
+- **Routes**: Define API endpoints and link them to the corresponding controllers.
 
-### База данных (PostgreSQL)
+### Database (PostgreSQL)
 
-Хранит данные о вселенной Звездных войн, такие как персонажи, планеты и звездные корабли.
+Stores data about the Star Wars universe, such as people, planets, and starships.
 
-### Миграции данных (Data migrations)
+### Data Migrations
 
-Скрипты для переноса данных из публичного API SWAPI в локальную базу данных.
+Scripts for transferring data from the public SWAPI API to the local database. The migration process includes:
 
-## Взаимодействие компонентов
+- Docker Compose healthchecks to ensure database readiness
+- Automatic data cleaning and type conversion
+- Comprehensive error handling and logging
+- Support for nullable fields and large numeric values
 
-### HTTP-запросы от клиента (HTTP request client)
+## Component Interaction
 
-Клиентское приложение делает HTTP-запросы к REST API для получения данных. Например,
-`GET /api/people` для получения списка персонажей.
+### HTTP Requests from the Client
 
-### Маршрутизация запросов (Query routing)
+The client application makes HTTP requests to the REST API to retrieve data. For example, `GET /api/people` to get a list of people.
 
-Express.js обрабатывает запросы и направляет их к соответствующим маршрутам. Например, запрос
-`GET /api/people` направляется к маршруту для получения списка персонажей.
+### Query Routing
 
-### Контроллеры (Controllers)
+Express.js handles requests and routes them to the appropriate endpoints. For example, a `GET /api/people` request is routed to the endpoint for retrieving the list of people.
 
-Контроллеры получают запросы от маршрутов, обрабатывают их, взаимодействуют с сервисами и формируют
-ответы. Например, контроллер для персонажей вызывает сервис для получения списка персонажей из базы
-данных.
+### Controllers
 
-### Сервисы (Services)
+Controllers receive requests from routes, process them, interact with services, and form responses. For example, the people controller calls the service to get the list of people from the database.
 
-Сервисы содержат бизнес-логику и взаимодействуют с базой данных через DAO. Например, сервис для
-персонажей запрашивает список персонажей из PostgreSQL.
+### Services
+
+Services contain business logic and interact with the database via DAO. For example, the people service requests a list of people from PostgreSQL.
 
 ### DAO
 
-DAO отвечает за взаимодействие с базой данных через TypeORM. Например, DAO для персонажей выполняет
-запросы к базе данных для получения или изменения данных.
+DAO is responsible for interacting with the database via TypeORM. For example, the people DAO executes queries to the database to retrieve or modify data.
 
-### Сущности (Entities)
+### Entities
 
-Модели определяют структуру данных и методы взаимодействия с PostgreSQL через TypeORM. Например,
-модель персонажа определяет схему данных для персонажей и методы для выполнения запросов к базе
-данных.
+Entities define the data structure and methods for interacting with PostgreSQL via TypeORM. For example, the people entity defines the data schema for people and methods for executing queries to the database.
 
-### Ответы клиенту (Responses to client)
+### Responses to the Client
 
-Контроллеры формируют ответы и отправляют их обратно клиенту. Например, после получения списка
-персонажей из сервиса, контроллер отправляет этот список в виде JSON ответа клиенту.
+Controllers form responses and send them back to the client. For example, after receiving a list of people from the service, the controller sends this list as a JSON response to the client.
+
+## Docker Architecture
+
+### Services
+
+- **star-wars-api**: Main application server running on port 3000
+- **db**: PostgreSQL database with healthcheck monitoring
+- **migration**: Data migration service that populates the database
+
+### Key Features
+
+- **Healthchecks**: PostgreSQL readiness is monitored before starting dependent services
+- **Volume mounting**: Code changes are reflected immediately in development
+- **Environment isolation**: Each service has its own environment configuration
+- **Command override**: All startup commands are defined in docker-compose.yml for flexibility
+
+## Error Handling and Logging
+
+The application includes comprehensive error handling and informative logging:
+
+- Database connection status with detailed error messages
+- Migration progress tracking with success/failure reporting
+- API endpoint availability and response status
+- Docker service health monitoring

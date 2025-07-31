@@ -1,4 +1,4 @@
-import {EntitySchema} from 'typeorm';
+import { EntitySchema } from 'typeorm';
 
 const Planets = new EntitySchema({
   name: 'Planets',
@@ -8,20 +8,20 @@ const Planets = new EntitySchema({
       type: 'int',
       generated: true,
     },
-    name: {type: 'varchar'},
-    rotation_period: {type: 'int'},
-    orbital_period: {type: 'int'},
-    diameter: {type: 'int'},
-    climate: {type: 'varchar'},
-    gravity: {type: 'varchar'},
-    terrain: {type: 'varchar'},
-    surface_water: {type: 'int'},
-    population: {type: 'int'},
-    residents: {type: 'simple-array'},
-    films: {type: 'simple-array'},
-    created: {type: 'timestamp'},
-    edited: {type: 'timestamp'},
-    url: {type: 'varchar'},
+    name: { type: 'varchar' },
+    rotation_period: { type: 'int', nullable: true },
+    orbital_period: { type: 'int', nullable: true },
+    diameter: { type: 'int', nullable: true },
+    climate: { type: 'varchar' },
+    gravity: { type: 'varchar' },
+    terrain: { type: 'varchar' },
+    surface_water: { type: 'int', nullable: true },
+    population: { type: 'varchar', nullable: true },
+    residents: { type: 'simple-array' },
+    films: { type: 'simple-array' },
+    created: { type: 'timestamp' },
+    edited: { type: 'timestamp' },
+    url: { type: 'varchar' },
   },
 });
 
