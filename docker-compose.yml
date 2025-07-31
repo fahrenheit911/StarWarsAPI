@@ -1,7 +1,9 @@
 services:
   star-wars-api:
-    image: star-wars-api:latest
     container_name: star-wars-api
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '3000:3000'
     environment:
